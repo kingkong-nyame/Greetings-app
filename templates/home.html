@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+       {% block title %} <title>Greatings</title>{% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}"
+
+    </head>
+    <body>
+        <div id="videoBC">
+        <video id="videoBG" poster="{{ url_for('static', filename='Kingkong.png') }}" autoplay muted loop>
+            <source src="{{ url_for('static', filename='kingkong.mp4') }}" type="video/mp4">
+          </video>
+        </div>
+        <br>
+        <form action="greet" method="post">
+            {% for message in get_flashed_messages() %}
+                  <p>{{message}}</p>
+            {% endfor %}
+            <br>
+            <input type="text" name="name_input">
+            <br>
+            <input type="submit" value="GREET" id="greet">
+        </form>
+    </body>
+<html>
